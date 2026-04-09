@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Táctico Zarya Zima(GTZZ)</title>
+    <meta name="description" content="Sitio oficial del Grupo Táctico Zarya Zima(GTZZ). Comunidad de táctica en Arma Reforger, Project Reality y más. ¡Súmate a nuestras filas!">
+    <meta name="keywords" content="GTZZ, Grupo Tactico Zarya, Clan de Arma Reforger, Project Reality, Arma 3 etc">
+    <meta name="author" content="GTZZ - Alto Mando">
+    <meta property="og:title" content="Grupo Táctico Zarya Zima(GTZZ)">
+    <meta property="og:description" content="Operaciones tácticas Únete a nuestra comunidad.">
+    <meta property="og:image" content="assets/logo gtzz.png">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    /* Animación de pulso suave */
+    @keyframes pulsogtzz {
+        0% { box-shadow: 0 0 0 0 rgba(206, 157, 16, 0.7); }
+        70% { box-shadow: 0 0 0 15px rgba(206, 157, 16, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(206, 157, 16, 0); }
+    }
+
+    /* Estilo del botón con animación aplicada */
+    #btn-entrar-gtzz {
+        background: #ce9d10;
+        border: none;
+        color: #000;
+        padding: 18px 60px;
+        font-size: 1.4rem;
+        font-weight: bold;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        /* Aquí activamos la animación infinita */
+        animation: pulsogtzz 2s infinite;
+        outline: none;
+    }
+
+    /* Efecto cuando pasas el mouse por encima */
+    #btn-entrar-gtzz:hover {
+        background: #fff; /* Cambia a blanco al tocarlo */
+        transform: scale(1.05); /* Se agranda un poquito */
+        box-shadow: 0 0 30px #ce9d10; /* Brillo intenso */
+        animation: none; /* Se detiene el pulso al tocarlo */
+    }
+
+    /* Efecto cuando lo presionas */
+    #btn-entrar-gtzz:active {
+        transform: scale(0.95);
+    }
+</style>
+
+
+
+
+
+
+</head>
+<body>
+<audio id="musicaFondo" loop preload="auto">
+    <source src="assets/musica_gtzz.mp3" type="audio/mpeg">
+
+</audio>
+
+<!-- PANTALLA DE ENTRADA CON IMÁGENES DE RUSOS -->
+<div id="pantalla-entrada" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#000; display:flex; justify-content:center; align-items:center; z-index:99999; flex-direction: column; overflow: hidden;">
+    
+    <!-- CONTENEDOR DE IMÁGENES DE FONDO -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+        
+        <!-- LADO IZQUIERDO: RUSOS PR -->
+        <div style="position: absolute; width: 100%; height: 100%; background: url('assets/rusos pr.png') center/cover no-repeat; clip-path: polygon(0 0, 60% 0, 40% 100%, 0% 100%); filter: brightness(0.4) grayscale(0.2);"></div>
+        
+        <!-- LADO DERECHO: RUSOS ARMA REFORGER -->
+        <div style="position: absolute; width: 100%; height: 100%; background: url('assets/rusos arma reforger.png') center/cover no-repeat; clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%); filter: brightness(0.4) grayscale(0.2);"></div>
+        
+        <!-- DIVISOR DORADO -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #ce9d10; clip-path: polygon(59.5% 0, 60.5% 0, 40.5% 100%, 39.5% 100%); opacity: 0.4;"></div>
+    </div>
+
+    <!-- CONTENIDO CENTRAL -->
+    <div style="text-align: center; padding: 20px; position: relative; z-index: 10;">
+        <h1 style="color:#ce9d10; font-size: clamp(2rem, 8vw, 3.5rem); letter-spacing: 8px; text-transform: uppercase; margin: 0; font-weight: bold; text-shadow: 2px 2px 10px rgba(0,0,0,0.8);">
+            GRUPO TÁCTICO<br>ZARYA
+        </h1>
+        
+        <p style="color: #fff; letter-spacing: 5px; margin: 20px 0 40px 0; font-size: 1.2rem; opacity: 0.9;">
+            BIENVENIDO
+        </p>
+
+        <button id="btn-entrar-gtzz">
+            [ ENTRAR ]
+        </button>
+    </div>
+</div>
+
+<style>
+    /* Tamaño para PC */
+    .titulo-gtzz { font-size: 12rem; letter-spacing: 25px; }
+    .subtitulo-gtzz { font-size: 1.5rem; letter-spacing: 8px; }
+
+    /* Ajustes automáticos para CELULAR */
+    @media (max-width: 768px) {
+        .titulo-gtzz { 
+            font-size: 5rem; /* Más pequeño para que no se salga de la pantalla */
+            letter-spacing: 10px; 
+        }
+        .subtitulo-gtzz { 
+            font-size: 0.9rem; 
+            letter-spacing: 4px; 
+        }
+        #btn-entrar-gtzz {
+            width: 80%; /* Botón más ancho para tocar fácil con el dedo */
+            padding: 15px 20px;
+            font-size: 1rem;
+        }
+    }
+
+    /* Efecto al pasar el mouse */
+    #btn-entrar-gtzz:hover {
+        background: #ce9d10;
+        color: #000;
+        box-shadow: 0 0 30px rgba(206, 157, 16, 0.6);
+    }
+</style>
+</div>
+    <header class="navbar">
+        <div class="logo">
+            <img src="assets/logo gtzz.png" alt="Logo gtzz" class="logo-img">
+            <span>GRUPO TÁCTICO ZARYA</span>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+
+ <nav class="nav-menu">
+
+        <div class="dropdown">
+            <a href="#" class="dropbtn">INICIO▾</a>
+            <div class="dropdown-content">
+                <a href="#">FRASE DEL CLAN</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="#" class="dropbtn">SOBRE EL CLAN▾</a>
+            <div class="dropdown-content">
+                <a href="javascript:void(0)" onclick="mostrarHistoria()">HISTORIA DEL CLAN</a>
+                <a href="#">ESTILO TÁCTICO</a>
+                <a href="#">ORGANIZACIÓN</a>
+            </div>
+        </div>
+
+
+        <div class="dropdown">
+    <a href="#" class="dropbtn">JUEGOS▾</a>
+    <div class="dropdown-content">
+        <a href="https://www.realitymod.com/" target="_blank">Project Reality</a>
+        <a href="https://store.steampowered.com/app/1874880/Arma_Reforger/" target="_blank">Arma Reforger</a>
+        <a href="https://store.steampowered.com/app/107410/Arma_3/" target="_blank">Arma 3</a>
+        <a href="https://store.steampowered.com/app/221100/DayZ/" target="_blank">DayZ</a>
+        <a href="https://warthunder.com/" target="_blank">War Thunder</a>
+        <a href="https://store.steampowered.com/app/393380/Squad/" target="_blank">Squad</a>
+        <a href="https://store.steampowered.com/app/252490/Rust/" target="_blank">Rust</a>
+        <a href="https://store.steampowered.com/app/1144200/Ready_or_Not/" target="_blank">Ready or Not</a>
+        <a href="https://store.steampowered.com/app/686810/Hell_Let_Loose/" target="_blank">Hell Let Loose</a>
+        <a href="https://enlisted.net/" target="_blank">Enlisted</a>
+        <a href="https://store.steampowered.com/app/1238840/Battlefield_1/" target="_blank">Battlefield 1 Revolution</a>
+    </div>
+
+</div>
+
+
+        <div class="dropdown">
+    <a href="#" class="dropbtn">OPERACIONES Y ENTRENAMIENTOS▾</a>
+    <div class="dropdown-content">
+        <a href="#">Infantería</a>
+        <a href="#">Blindados</a>
+        <a href="#">Logística</a>
+        <a href="#">Helicópteros</a>
+        <a href="#">Operaciones cooperativas</a>
+    </div>
+
+</div>
+
+        <div class="dropdown">
+    <a href="#" class="dropbtn">RANGOS▾</a>
+    <div class="dropdown-content">
+        <a href="#">RECLUTA</a>
+        <a href="#">SOLDADO</a>
+        <a href="#">CABO</a>
+        <a href="#">OFICIALES</a>
+        <a href="#">ALTO MANDO</a>
+
+    </div>
+</div>
+
+        <div class="dropdown">
+    <a href="#" class="dropbtn">NOTICIAS▾</a>
+    <div class="dropdown-content">
+        <a href="#">ASCENSOS</a>
+        <a href="#">NUEVOS JUEGOS</a>
+        <a href="#">EVENTOS</a>
+        <a href="#">OPERACIONES ESPECIALES</a>
+    </div>
+
+</div>
+
+   
+    <div class="dropdown">
+            <a href="#" class="dropbtn menu-redes">REDES ▾</a>
+            <div class="dropdown-content">
+                <a href="https://discord.gg/6DnzqpcsCv" target="_blank">
+                    <i class="fab fa-discord"></i> DISCORD
+                </a>
+                <a href="https://youtube.com/@clangtzz-vaf?si=BfqLAMUVJsKUdo4L" target="_blank">
+                    <i class="fab fa-youtube"></i> YOUTUBE
+                </a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <div id="google_translate_element" class="lang-selector"></div>
+        </div>
+    </nav> </header>
+
+    <main class="hero">
+        <div class="hero-content">
+            <h1>GTZZ</h1>
+            <p>GRUPO TACTICO ZARYA</p>
+            <button id="miBoton" class="btn-main">REGLAMENTO OFICIAL</button>
+<section class="video-gallery">
+    <h2 class="section-title">OPERACIONES RECIENTES</h2>
+    <div class="video-container">
+
+        <div class="video-card">
+            <a href="https://www.youtube.com/shorts/gseTBMu2NmI" target="_blank">
+                <div class="thumbnail">
+                    <img src="https://img.youtube.com/vi/gseTBMu2NmI/maxresdefault.jpg" alt="Operación">
+                    <div class="play-button"><i class="fas fa-play"></i></div>
+                </div>
+
+
+                <h3>Me comi a Murfi</h3>
+            </a>
+        </div>
+
+        <div class="video-card">
+            <a href="https://www.youtube.com/shorts/erfspFem2bM" target="_blank">
+                <div class="thumbnail">
+                    <img src="https://img.youtube.com/vi/erfspFem2bM/maxresdefault.jpg" alt="Operación">
+                    <div class="play-button"><i class="fas fa-play"></i></div>
+                </div>
+                <h3>Otra vez Victor???</h3>
+
+            </a>
+        </div>
+        <div class="video-card">
+            <a href="https://www.youtube.com/shorts/6eALYqPhIFA" target="_blank">
+
+                <div class="thumbnail">
+                    <img src="https://img.youtube.com/vi/6eALYqPhIFA/maxresdefault.jpg" alt="Operación">
+                    <div class="play-button"><i class="fas fa-play"></i></div>
+
+                </div>
+                <h3>Victor siendo Victor</h3>
+            </a>
+        </div>
+
+        </div>
+
+</section>
+
+<div id="modalReglas" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Reglas de Comportamiento – Grupo Táctico Zarya Zima (GTZZ)</h2>
+        <p class="subtitle">Convivencia | Respeto | Trabajo en equipo</p>
+        <hr>
+        <div class="reglas-texto">
+            <p>Estas normas buscan mantener un buen ambiente, orden y organización. La seriedad total se aplica solo en combates entre clanes y operaciones oficiales. En el día a día, somos una comunidad normal, con buen trato y compañerismo.</p>
+
+            <h3>1. ORDEN Y ORGANIZACIÓN</h3>
+
+            <ul>
+
+                <li>Respeta al líder de escuadra y a los rangos superiores.</li>
+                <li>Evita tomar decisiones importantes por tu cuenta durante operaciones.</li>
+                <li>Mantente con tu escuadra y en el canal asignado.</li>
+                <li>La comunicación debe ser clara, no autoritaria.</li>
+            </ul>
+
+            <h3>2. RESPETO</h3>
+            <ul>
+                <li>Trata bien a todos los miembros. No insultos, toxicidad ni faltas de respeto.</li>
+                <li>Las bromas son bienvenidas, siempre que no afecten el ambiente.</li>
+                <li>Si hay un problema, repórtalo a un moderador.</li>
+            </ul>
+            <h3>3. INMERSIÓN (SOLO EN COMBATE)</h3>
+
+            <ul>
+                <li>En combates oficiales se mantiene el rol táctico.</li>
+                <li>Nada de música, ruido o spam en canales de voz.</li>
+                <li>Fuera de combates, el ambiente es normal y relajado.</li>
+
+            </ul>
+            <h3>4. USO DE VOZ Y COMUNICACIÓN</h3>
+            <ul>
+                <li>No saturar la radio/voz. Hablar claro y directo.</li>
+                <li>Informar lo importante, sin gritar ni exagerar.</li>
+            </ul>
+            <h3>5. CONDUCTA GENERAL</h3>
+
+            <ul>
+                <li>No usar vehículos importantes sin permiso.</li>
+                <li>No sabotear partidas ni entrenamientos (No trolleo/No griefing).</li>
+                <li>Apoya siempre a tu escuadra.</li>
+            </ul>
+            <div class="filosofia">
+                <h4>FILOSOFÍA GTZZ</h4>
+                <p>Disciplina cuando toca. Relajado cuando se puede. Respeto siempre.</p>
+                <strong>GTZZ = Orden + Comunidad + Buen ambiente</strong>
+              </div>
+
+         </div>
+
+      </div>
+
+  </div>
+<!-- MODAL DE HISTORIA DEL CLAN GTZZ -->
+<div id="modalHistoria" class="modal" style="display:none; position: fixed; z-index: 100000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9);">
+    <div class="modal-content" style="background-color: #111; margin: 5% auto; padding: 20px; border: 1px solid #ce9d10; width: 80%; max-width: 800px; border-radius: 8px; box-shadow: 0 0 20px rgba(206, 157, 16, 0.5);">
+        
+        <span class="close-modal" onclick="cerrarModal('modalHistoria')" style="color: #ce9d10; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+        
+        <h2 style="color: #ce9d10; text-align: center; letter-spacing: 3px; text-transform: uppercase;">Historia del Grupo Táctico Zarya Zima (GTZZ)</h2>
+        <hr style="border: 0; border-top: 1px solid #ce9d10; margin: 20px 0;">
+        
+        <div class="reglas-texto" style="text-align: left; color: #eee; font-size: 1.05rem; line-height: 1.6; max-height: 65vh; overflow-y: auto; padding-right: 15px;">
+            
+            <p>El <strong>Grupo Táctico Zarya Zima (GTZZ)</strong> tiene sus raíces en el año 2025, cuando sus fundadores, <strong>Isaías y Víctor</strong>, formaban parte de una unidad previa conocida como GEA de las Fuerzas Argentinas.</p>
+
+            <p>Durante su estancia en ese clan, ocurrieron una serie de conflictos internos y situaciones negativas que afectaron profundamente la estabilidad del grupo. Estas experiencias marcaron especialmente a Víctor, quien llegó al punto de considerar abandonar por completo el mundo de los juegos tácticos.</p>
+
+            <p>Sin embargo, en medio de ese momento crítico, Isaías propuso una alternativa: no rendirse, sino crear algo propio. Un nuevo comienzo, con reglas claras, disciplina, lealtad y una visión distinta.</p>
+
+            <p>Así nació el primer concepto del clan bajo el nombre de Grupo Táctico Zarya, liderado por Isaías. Este sería el punto de partida de lo que más adelante evolucionaría, tras una etapa de reorganización y crecimiento interno conocida como la Revolución, en el actual:</p>
+
+            <p style="text-align: center; font-size: 1.3rem; color: #ce9d10;"><strong>Grupo Táctico Zarya Zima (GTZZ)</strong></p>
+
+            <p>Desde sus inicios, Víctor asumió un rol fundamental como responsable de la administración y desarrollo estructural del clan, encargándose de:</p>
+            <ul style="list-style: none; padding-left: 10px;">
+                <li>• Creación de canales y categorías</li>
+                <li>• Organización interna</li>
+                <li>• Configuración de bots</li>
+                <li>• Diseño y estética del servidor</li>
+                <li>• Mejora continua del entorno</li>
+            </ul>
+
+            <p>Gracias a este trabajo constante, el GTZZ fue consolidándose día a día, transformándose en una comunidad sólida y bien estructurada.</p>
+
+            <p>Con el paso del tiempo, comenzaron a integrarse miembros clave que darían identidad y fuerza al grupo:</p>
+            <ul style="list-style: none; padding-left: 10px;">
+                <li>• <strong>KARA:</strong> uno de los pilares desde el inicio, manteniéndose leal al clan desde sus primeras etapas.</li>
+                <li>• <strong>Alexis:</strong> integrante destacado que acompañó el crecimiento del GTZZ desde sus comienzos.</li>
+                <li>• <strong>Vipera:</strong> incorporación más reciente, demostrando compromiso y lealtad hacia los valores del grupo.</li>
+            </ul>
+
+            <hr style="border: 0; border-top: 1px dotted #ce9d10; margin: 20px 0;">
+
+            <p style="color: #ce9d10; font-size: 1.2rem;"><strong>Identidad del Clan</strong></p>
+            <p>El GTZZ no es solo un clan, sino una unidad basada en principios claros:</p>
+            <ul style="list-style: none; padding-left: 10px;">
+                <li>• Lealtad absoluta</li>
+                <li>• Disciplina táctica</li>
+                <li>• Respeto entre miembros</li>
+                <li>• Mejora constante</li>
+            </ul>
+
+            <p>Su historia está marcada por la superación de conflictos pasados y la construcción de una estructura fuerte desde cero.</p>
+
+            <hr style="border: 0; border-top: 1px dotted #ce9d10; margin: 20px 0;">
+
+            <p style="color: #ce9d10; font-size: 1.2rem;"><strong>Presente y Futuro</strong></p>
+            <p>Hoy en día, el Grupo Táctico Zarya Zima continúa evolucionando, manteniendo su esencia original mientras se fortalece con cada nuevo integrante que demuestra compromiso real.</p>
+
+            <p>El objetivo es claro: <strong>construir una unidad táctica reconocida, organizada y respetada dentro de la comunidad.</strong></p>
+            
+        </div>
+    </div>
+</div>
+
+  </main>
+
+    <script src="js/script.js"></script>
+<footer class="footer-simple">
+        <div class="footer-content">
+            <p>© 2025 – 2026 GRUPO TÁCTICO ZARYA ZIMA. Atentamente,
+🛡️ Alto Mando.</p>
+            <p class="footer-legal">
+                (GTZZ)
+            </p>
+        </div>
+    </footer>
+</body>
+<script>
+    const btnEntrar = document.getElementById('btn-entrar-gtzz');
+    const pantalla = document.getElementById('pantalla-entrada');
+    const musica = document.getElementById('musicaFondo');
+
+    btnEntrar.addEventListener('click', function() {
+        // 1. Iniciar música (el navegador permite audio solo tras un clic)
+        if(musica) {
+            musica.play().catch(err => console.log("Error al reproducir audio:", err));
+        }
+
+        // 2. Efecto de salida suave
+        pantalla.style.transition = "opacity 0.8s ease, visibility 0.8s";
+        pantalla.style.opacity = "0";
+        pantalla.style.visibility = "hidden";
+        
+        // 3. Quitar del todo después de la animación
+        setTimeout(() => {
+            pantalla.style.display = "none";
+        }, 800);
+    });
+
+
+
+
+
+function mostrarHistoria() {
+    document.getElementById('modalHistoria').style.display = "block";
+}
+
+function cerrarModal(id) {
+    document.getElementById(id).style.display = "none";
+}
+</script>
+</html>
