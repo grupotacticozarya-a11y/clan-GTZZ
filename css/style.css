@@ -1,0 +1,572 @@
+body {
+    /* 1. La ruta: ../ sale de la carpeta css y entra a assets */
+    background-image: linear-gradient(to right, transparent 115%, rgba(0,0,0,0.4) 130%), 
+                  
+                      url('../assets/fondo pagina.png');
+
+   /* CAMBIA ESTO */
+    background-size: 100% auto;      /* El ancho ocupa el 100%, el alto se ajusta solo sin estirarse */
+    background-position: top center; /* La foto empieza arriba de todo */
+    background-attachment: scroll;   /* El avión sube cuando bajas */
+    background-repeat: no-repeat;    
+    background-color: #0a0a0a;       /* TODO lo que bajes después de la foto será de este color negro */
+    
+    min-height: 120vh;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+
+
+/* 1. LIM */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: #0a0a0a;
+    color: white;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+/* 2. BARRA DE NAVEGACIÓN */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: rgba(0, 0, 0, 0.95);
+    border-bottom: 2px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* 3. LOGO (Para que GTZ y el texto no se corten) */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap; /* Evita que el texto salte abajo */
+    min-width: fit-content;
+}
+
+.logo span {
+    font-weight: 900;
+    font-size: 1.2rem;
+    line-height: 1.2; /* Ajusta el espacio entre líneas si el nombre es largo */
+    display: flex;
+    flex-direction: column; /* Esto mantiene 'Grupo Táctico' y 'Zarya' juntos si los tienes así */
+}
+
+/* 4. MENÚ DE NAVEGACIÓN (Para que queden en línea a la derecha) */
+.navbar nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px; 
+    margin-left: auto; /* Empuja todo el menú a la derecha */
+}
+
+.navbar nav a, .dropbtn {
+    color: #aaa !important; /* Gris por defecto */
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase; 
+    padding: 10px 15px;
+    transition: 0.3s;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/* Esto arregla que INICIO y los demás se pongan amarillos */
+.navbar nav a:hover, 
+.dropdown:hover .dropbtn {
+    color: #ce9d10 !important;
+}
+
+/* 5. DROPDOWNS */
+.dropdown {
+    position: relative; /* Esto hace que el submenú se guíe por el botón */
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #111; /* Un gris casi negro para que resalte el texto */
+    min-width: 220px;
+    border: 2px solid #ce9d10; /* El marco dorado */
+    z-index: 1000;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5); /* Le da profundidad */
+}
+
+.dropdown-content a {
+    color: #ccc !important;
+    padding: 12px 16px;
+    display: block;
+    font-size: 15px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #222;
+    text-align: center; /* Texto centrado */
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(206, 157, 16, 0.2); /* Fondo dorado muy suave (transparente) */
+    color: #ce9d10 !important; /* El texto se vuelve dorado */
+    border-left: 4px solid #ce9d10; /* Una barrita dorada a la izquierda que queda muy táctica */
+    padding-left: 12px; /* Ajuste para que la barrita no pise el texto */
+}
+
+/* Solo se abre con hover en computadoras (más de 768px) */
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+}
+
+/* 6. BOTÓN DERECHA */
+.btn-comprar {
+    background-color: #ce9d10;
+    color: black !important;
+    padding: 10px 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 7. SECCIÓN CENTRAL (HERO) */
+
+.hero {
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Quitamos el degradado negro y la imagen repetida */
+    background: transparent; 
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.hero-content {
+    margin-top: 900px; /* <--- Esto empuja el bloque GTZ hacia abajo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero h1 {
+    font-size: 6rem;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: #ce9d10;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.btn-main {
+    padding: 15px 40px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-main:hover {
+    background: white;
+    color: black;
+}
+
+/* 8. MODAL DE REGLAS */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    background-color: #111;
+    margin: 5% auto;
+    padding: 30px;
+    border: 2px solid #ce9d10;
+    width: 60%;
+    max-height: 80vh;
+    overflow-y: auto;
+    color: #eee;
+}
+
+.close-modal {
+    color: #ce9d10;
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* 9. GALERÍA DE VIDEOS */
+.video-gallery {
+    position: relative;    /* Permite mover el bloque sin afectar el tamaño */
+    top: 0px;            /* <--- ESTE es el número que debes tocar para bajarla */
+    margin-top: -2000;         /* Quitamos el margin-top para que no estire nada */
+    
+    padding: 70px 70px;
+    background-color: #0d0d0d;
+    text-align: center;
+    z-index: 10;           /* Asegura que quede por encima del fondo */
+}
+
+.section-title {
+    color: #ce9d10;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.video-card {
+    width: 300px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.video-card:hover {
+    border-color: #ce9d10;
+    transform: translateY(-10px);
+}
+
+.thumbnail {
+    position: relative;
+    width: 100%;
+    height: 170px;
+    overflow: hidden;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(206, 157, 16, 0.8);
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+
+/* AJUSTE PARA TÍTULOS DE VIDEOS EN BLANCO */
+.video-card a h3, 
+.video-card h3 {
+    color: white !important; /* Quita el color violeta de los enlaces visitados */
+    text-decoration: none;
+}
+
+.video-card a {
+    color: white !important;
+}
+
+/* ARREGLO PARA QUE EL LOGO Y EL MENÚ NO SE PISEN */
+.navbar {
+    flex-wrap: nowrap; /* Evita que el menú baje si hay poco espacio */
+}
+
+.logo span {
+    display: block; /* Cambiado de flex para evitar el salto de línea raro */
+    white-space: nowrap;
+}
+
+.navbar nav {
+    flex-wrap: nowrap; /* Fuerza a INICIO y REDES a estar siempre juntos */
+}
+
+
+/* 10. PIE DE PÁGINA (FOOTER) */
+.footer-simple {
+    background-color: #050505; /* Casi negro */
+    padding: 20px 20px;
+    text-align: center;
+    border-top: 1px solid #222;
+    margin-top: 50px;
+   
+}
+
+.footer-content p {
+    color: #888; /* Gris suave */
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.footer-legal {
+    font-size: 11px !important;
+    color: #555 !important; /* Más oscuro para que sea secundario */
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Estilo para el selector de idiomas */
+.lang-selector {
+    padding: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Ajuste para que el texto de Google no se vea raro en el menú */
+.goog-te-gadget-simple {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid #ce9d10 !important;
+    padding: 5px !important;
+    border-radius: 4px !important;
+}
+
+.goog-te-gadget-simple span {
+    color: #ce9d10 !important; /* Color dorado del clan */
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+/* Ocultar el banner molesto de Google arriba */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+body {
+    top: 0px !important;
+}
+
+
+
+/* ==========================================
+   CONFIGURACIÓN FINAL ANDROID (TODO CERCA)
+   ========================================== */
+
+@media (max-width: 768px) {
+    
+    /* 1. SUBIR GTZZ AL MÁXIMO (Cerca del borde superior/logo) */
+    .hero-content {
+        margin-top: 120px !important; /* Ajusta a 80px si lo quieres aún más arriba */
+        gap: 10px !important;         /* Estrecha espacio entre GTZZ y subtítulo */
+    }
+
+    /* 2. QUITAR ESPACIO DEL FONDO PARA QUE LOS VIDEOS SUBAN */
+    .hero {
+        height: auto !important;
+        min-height: 70vh !important;
+        margin-bottom: 0px !important;
+    }
+
+    /* 3. TAMAÑO DE TEXTO AJUSTADO */
+    .hero h1 {
+        font-size: 3.5rem !important;
+        margin-bottom: 0px !important;
+    }
+
+    /* 4. PEGAR GALERÍA DE VIDEOS AL BOTÓN DE REGLAMENTO */
+    .video-gallery {
+        margin-top: -30px !important; /* Valor negativo para "pisar" el espacio del botón */
+        top: 0px !important;
+        padding: 30px 10px !important;
+    }
+
+    /* 5. PEGAR EL FOOTER A LOS VIDEOS */
+    .footer-simple {
+        margin-top: 20px !important;  /* Casi pegado a la última fila de videos */
+        padding: 20px 10px !important;
+    }
+
+    /* ==========================================
+   BLOQUE FINAL UNIFICADO - ANDROID & MÓVIL
+   ========================================== */
+
+/* 1. ESTILO BASE DEL BOTÓN HAMBURGUESA (FUERA DEL MEDIA PARA QUE EXISTA) */
+.menu-toggle {
+    display: none; /* Se oculta en PC */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1100;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #ce9d10;
+    transition: 0.3s;
+}
+
+/* 2. TODO EL AJUSTE PARA PANTALLAS MÓVILES */
+@media (max-width: 768px) {
+    
+    /* OCULTAR MENÚS FLOTANTES (EL ERROR DE TU FOTO) */
+    .navbar nav {
+        display: none !important; /* Esto quita los links del medio de la pantalla */
+    }
+
+    /* BARRA DE NAVEGACIÓN COMPACTA */
+    .navbar {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        padding: 10px 15px !important;
+        height: 70px;
+    }
+
+    .menu-toggle {
+        display: flex !important; /* Aparece el botón de 3 rayas */
+    }
+
+    /* 1. CORRECCIÓN DEL CONTENEDOR DEL MENÚ */
+    .nav-menu {
+        display: none; /* Se oculta por defecto */
+        position: fixed;
+        left: 0;
+        top: 70px; /* Se ajusta debajo de la barra negra */
+        width: 100%;
+        height: calc(100vh - 70px); /* Ocupa el resto de la pantalla */
+        background-color: rgba(0, 0, 0, 0.95);
+        
+        /* ESTO ES LO IMPORTANTE: Alinea los botones uno debajo de otro */
+        flex-direction: column !important; 
+        justify-content: flex-start !important; 
+        align-items: center !important;
+        padding-top: 30px;
+        z-index: 1000;
+        overflow-y: auto; /* Por si tienes muchos botones, permite bajar con el dedo */
+    }
+
+    /* 2. FORZAR QUE EL MENÚ APAREZCA AL ACTIVARLO */
+    .nav-menu.active {
+        display: flex !important;
+    }
+
+    /* --- AJUSTE DE MENÚ MÓVIL: LETRAS BLANCAS A AMARILLAS + MARCO CENTRADO --- */
+@media (max-width: 768px) {
+    .menu-toggle { display: flex; }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column !important;
+        background-color: rgba(0, 0, 0, 0.98);
+        width: 100%;
+        height: 100vh;
+        transition: 0.4s;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important; 
+        padding-top: 20px !important;
+        gap: 0px !important;
+    }
+
+    .nav-menu.active { left: 0; }
+
+    /* LETRAS BLANCAS POR DEFECTO */
+    .nav-menu a, .nav-menu .dropbtn {
+        padding: 12px 0 !important;
+        margin: 0 !important;
+        display: block !important;
+        width: 100% !important;
+        font-size: 18px !important;
+        text-align: center !important;
+        background: none !important;
+        color: #ffffff !important; /* Blanco */
+        transition: 0.3s;
+    }
+
+    /* AL APRETAR O PASAR EL DEDO SE PONE AMARILLO */
+    .nav-menu a:active, 
+    .nav-menu a:hover,
+    .nav-menu .dropbtn:active {
+        color: #ce9d10 !important; /* Amarillo/Dorado GTZ */
+    }
+
+    /* SUBMENÚ (CUADRO CON LÍNEAS AMARILLAS) */
+    .dropdown-content.active-mobile {
+        display: block !important;
+        position: static !important;
+        width: 85% !important;        /* Centrado y con aire a los lados */
+        margin: 10px auto !important;
+        padding: 5px 0 !important;
+        border: 2px solid #ce9d10 !important; /* El marco amarillo */
+        background-color: rgba(20, 20, 20, 0.9) !important;
+        transform: none !important;
+    }
+
+    /* LETRAS DENTRO DEL CUADRO AMARILLO */
+    .dropdown-content.active-mobile a {
+        color: #ffffff !important; /* Blancas dentro también */
+        font-size: 16px !important;
+        padding: 10px 0 !important;
+        border-bottom: 1px solid rgba(206, 157, 16, 0.2); /* Línea divisoria tenue */
+    }
+
+    /* AL TOCAR UNA OPCIÓN DEL SUBMENÚ */
+    .dropdown-content.active-mobile a:active {
+        color: #ce9d10 !important; /* Se pone amarilla al tocar */
+    }
+
+    .dropdown-content.active-mobile a:last-child {
+        border-bottom: none !important;
+    }
+}
+
+    /* ANIMACIÓN DE LAS RAYAS A "X" */
+    #mobile-menu.is-active .bar:nth-child(2) { opacity: 0; }
+    #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+
+/* 3. SEGURIDAD PARA MODALES */
+.modal, .modal-content {
+    overscroll-behavior: contain;
+}
+
+body.modal-open {
+    overflow: hidden !important;
+    touch-action: none;
+}
